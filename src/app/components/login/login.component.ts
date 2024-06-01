@@ -35,7 +35,7 @@ export class LoginComponent {
       response => {
         console.log('Login successful', response.token);
         this.partyService.token = response.token;
-        localStorage.setItem('token',response.token);
+        // localStorage.setItem('token',response.token);
         this.alertService.showAlert('Login Successful', 'Welcome!');
         this.router.navigate(['/party']);
       },

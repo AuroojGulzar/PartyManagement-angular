@@ -19,7 +19,8 @@ export class PartyService {
   // getPartyList(): Observable<any[]> {
   //   return this.http.get<any[]>(this.url);
   // }
-  token=localStorage.getItem("token");
+  token='';
+  // token=localStorage.getItem("token");
   getPartyData(): Observable<any> {
     const headers = new HttpHeaders().set('Authorization', `Token ${this.token}`);
     return this.http.get(this.apiUrl, { headers });
