@@ -1,0 +1,72 @@
+<div class="container">
+<button type="button " class="add mt-2  " (click)="getPartyById(0)" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Add Party
+</button>
+
+<table class="table table-bordered mt-2">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Company Name</th>
+            <th>Email</th>
+            <th>D.O.B</th>
+            <th>Mobile No</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- <ng-container *ngFor="let item of partyData"> -->
+            <tr *ngFor="let item of partyData">
+                <td>{{item.id}}</td>
+                <td>{{item.company_name}}</td>
+                <td>{{item.email}}</td>
+                <td>{{item.date_of_birth}}</td>
+                <td>{{item.mobile_no}}</td>
+                <td><i (click)="getPartyById(item.id)"  data-bs-toggle="modal"
+                    data-bs-target="#exampleModal" class="fas fa-edit"></i>
+                   
+                    <i (click)="deletePartyById(item.id)" class="fas fa-trash"></i>
+                        </td>
+            </tr>
+        <!-- </ng-container> -->
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">{{ isEditing ? 'Edit Party' : 'Add Party' }}</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+      
+                <div class="modal-body">
+                  <label for="" class="form-label">ID</label>
+                  <input type="text" class="form-control" formControlName="id">
+                  <label for="" class="form-label">Company Name</label>
+                  <input type="text" class="form-control" formControlName="company_name">
+                  <label for="" class="form-label">Email</label>
+                  <input type="text" class="form-control" formControlName="email">
+                  <label for="" class="form-label">D.O.B</label>
+                  <input type="text" class="form-control" formControlName="date_of_birth">
+                  <label for="" class="form-label">Mobile No</label>
+                  <input type="text" class="form-control" formControlName="mobile_no">
+                </div>
+               
+             
+            <div class="modal-footer">
+                <button type="submit"class="add" >Save</button>
+            </div>
+        </div>
+    </div>
+    </form>
+</div>
+</div>

@@ -1,0 +1,30 @@
+<div class="form-wrap">
+    <div class="tabs">
+      <h3 class="login-tab">Login</h3>
+    </div>
+  
+    <div class="tabs-content">
+      <div id="login-tab-content">
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
+          <div>
+            <input type="text" class="input" id="user_login" formControlName="username" placeholder="Email or Username">
+            <div *ngIf="username?.invalid && (username?.dirty || username?.touched)" class="error">
+              <div *ngIf="username?.errors?.['required']">Username is required.</div>
+              <div *ngIf="username?.errors?.['email']">Invalid email format.</div>
+            </div>
+          </div>
+          
+          <div>
+            <input type="password" class="input" id="user_pass" formControlName="password" placeholder="Password">
+            <div *ngIf="password?.invalid && (password?.dirty || password?.touched)" class="error">
+              <div *ngIf="password?.errors?.['required']">Password is required.</div>
+              <div *ngIf="password?.errors?.['minlength']">Password must be at least 6 characters long.</div>
+            </div>
+          </div>
+          
+          <input type="submit" class="button" value="Login" >
+        </form>
+      </div>
+    </div>
+  </div>
+  
